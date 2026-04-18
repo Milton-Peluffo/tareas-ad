@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Tareas AD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+        .login-form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-form">
+    <h2>Login - Tareas AD</h2>
+    
+    <!-- Mostrar mensaje de error si existe -->
+    <div th:if="${param.error}" class="error">
+        Usuario o contraseña incorrectos. Por favor intente nuevamente.
+    </div>
+    
+    <div th:if="${param.logout}" class="success">
+        Has cerrado sesión exitosamente.
+    </div>
+
+    <form method="post" action="/login">
+        <div class="form-group">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required/>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required/>
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    
+    <p style="margin-top: 20px; font-size: 14px; color: #666;">
+        <strong>Active Directory Login</strong><br>
+        Use su usuario y contraseña del dominio<br>
+        Ejemplos: admin, User01, User02, User03<br><br>
+        <small>Servidor AD: 192.168.1.41:389</small><br>
+        <small>Dominio: parcial.tareas</small>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - Tareas AD</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            float: right;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .item h3 {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #b02a37;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Dashboard - Tareas AD</h1>
+
+        <div class="user-info">
+            Bienvenido:
+            <strong th:text="${#authentication.name}">usuario</strong>
+        </div>
+    </div>
+
+    <!-- FUNCIONALIDADES -->
+    <div class="card">
+        <h2>Funciones del sistema</h2>
+
+        <div class="grid">
+
+            <!-- VER TAREAS -->
+            <div class="item">
+                <h3>Ver Tareas</h3>
+                <p>Consulta todas las tareas registradas</p>
+                <a href="/tasks" class="btn">Entrar</a>
+            </div>
+
+            <!-- CREAR TAREA -->
+            <div class="item">
+                <h3>Crear Tarea</h3>
+                <p>Agrega una nueva tarea al sistema</p>
+                <a href="/tasks/create" class="btn">Entrar</a>
+            </div>
+
+            <!-- EDITAR TAREA -->
+            <div class="item">
+                <h3>Editar Tarea</h3>
+                <p>Modifica el estado o datos de una tarea</p>
+                <a href="/tasks/edit" class="btn">Entrar</a>
+            </div>
+
+            <!-- ADMIN (opcional) -->
+            <div class="item">
+                <h3>Administrar Permisos</h3>
+                <p>Configura accesos de usuarios</p>
+                <a href="/admin" class="btn">Entrar</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="card">
+        <h3>Informacion</h3>
+
+        <ul>
+            <li>Usuario: <strong th:text="${#authentication.name}">usuario</strong></li>
+            <li>Sistema: Tareas con Active Directory</li>
+            <li>Base de datos: MySQL</li>
+        </ul>
+
+        <a href="/logout" class="btn btn-danger">Cerrar sesion</a>
+    </div>
+
+</div>
+
+</body>
+</html>
