@@ -1,0 +1,158 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.5)
+
+2026-04-18T21:59:25.392-05:00  INFO 24464 --- [tareas-ad] [           main] c.parcial.tareas_ad.TareasAdApplication  : Starting TareasAdApplication using Java 21.0.9 with PID 24464 (C:\Users\Milton\Desktop\tareas-ad\target\classes started by Milton in C:\Users\Milton\Desktop\tareas-ad)
+2026-04-18T21:59:25.397-05:00  INFO 24464 --- [tareas-ad] [           main] c.parcial.tareas_ad.TareasAdApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-04-18T21:59:26.016-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18T21:59:26.017-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18T21:59:26.040-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2026-04-18T21:59:26.047-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18T21:59:26.048-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-04-18T21:59:26.053-05:00  INFO 24464 --- [tareas-ad] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 LDAP repository interfaces.
+2026-04-18T21:59:26.449-05:00  INFO 24464 --- [tareas-ad] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-04-18T21:59:26.460-05:00  INFO 24464 --- [tareas-ad] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-18T21:59:26.460-05:00  INFO 24464 --- [tareas-ad] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-18T21:59:26.516-05:00  INFO 24464 --- [tareas-ad] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1065 ms
+2026-04-18T21:59:26.634-05:00  INFO 24464 --- [tareas-ad] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-18T21:59:26.675-05:00  INFO 24464 --- [tareas-ad] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-18T21:59:27.019-05:00  INFO 24464 --- [tareas-ad] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18T21:59:27.043-05:00  INFO 24464 --- [tareas-ad] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-18T21:59:27.177-05:00  INFO 24464 --- [tareas-ad] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-04-18T21:59:27.179-05:00  INFO 24464 --- [tareas-ad] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-18T21:59:27.195-05:00  WARN 24464 --- [tareas-ad] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-18T21:59:27.210-05:00  INFO 24464 --- [tareas-ad] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18T21:59:27.490-05:00  INFO 24464 --- [tareas-ad] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18T21:59:27.498-05:00  INFO 24464 --- [tareas-ad] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18T21:59:27.555-05:00  WARN 24464 --- [tareas-ad] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-18T21:59:27.601-05:00  INFO 24464 --- [tareas-ad] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name activeDirectoryAuthenticationProvider
+2026-04-18T21:59:27.707-05:00 DEBUG 24464 --- [tareas-ad] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-04-18T21:59:27.983-05:00  INFO 24464 --- [tareas-ad] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-04-18T21:59:27.989-05:00  INFO 24464 --- [tareas-ad] [           main] c.parcial.tareas_ad.TareasAdApplication  : Started TareasAdApplication in 2.891 seconds (process running for 3.259)
+2026-04-18T21:59:33.800-05:00  INFO 24464 --- [tareas-ad] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-18T21:59:33.800-05:00  INFO 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-18T21:59:33.801-05:00  INFO 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-04-18T21:59:33.809-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /login
+2026-04-18T21:59:33.814-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /login
+2026-04-18T21:59:34.036-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T21:59:39.379-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T21:59:39.399-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T21:59:39.416-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@7191a34e]
+2026-04-18T21:59:39.416-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@790e9d74]
+2026-04-18T21:59:39.417-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]
+2026-04-18T21:59:39.417-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]
+2026-04-18T21:59:39.418-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T21:59:39.418-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T21:59:39.538-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T21:59:39.547-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.authentication.ProviderManager     : Authentication failed with provider ActiveDirectoryAuthenticationProvider since Credenciales de Active Directory invalidas
+2026-04-18T21:59:39.547-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'user03'
+2026-04-18T21:59:39.549-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2026-04-18T21:59:39.549-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error
+2026-04-18T21:59:45.627-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T21:59:45.632-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.s.authentication.ProviderManager     : Authentication failed with provider ActiveDirectoryAuthenticationProvider since Credenciales de Active Directory invalidas
+2026-04-18T21:59:45.632-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'User03'
+2026-04-18T21:59:45.633-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2026-04-18T21:59:45.633-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error
+2026-04-18T21:59:45.821-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T21:59:45.842-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User02, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@bc3dba5]
+2026-04-18T21:59:45.842-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=User02, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]
+2026-04-18T21:59:45.842-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T22:00:35.099-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login
+2026-04-18T22:00:35.099-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login
+2026-04-18T22:00:35.105-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:35.162-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2026-04-18T22:00:35.163-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:35.164-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login
+2026-04-18T22:00:35.168-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /login
+2026-04-18T22:00:35.169-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /login
+2026-04-18T22:00:35.171-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:38.519-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /login
+2026-04-18T22:00:38.519-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /login
+2026-04-18T22:00:38.521-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:38.561-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2026-04-18T22:00:38.561-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:38.562-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login
+2026-04-18T22:00:38.565-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /login
+2026-04-18T22:00:38.565-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /login
+2026-04-18T22:00:38.567-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:00:49.634-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T22:00:49.639-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@70697433]
+2026-04-18T22:00:49.640-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]
+2026-04-18T22:00:49.640-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-8] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T22:00:49.648-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /dashboard
+2026-04-18T22:00:49.648-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:00:49.648-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /dashboard
+2026-04-18T22:00:49.729-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2026-04-18T22:00:49.730-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:00:49.730-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /favicon.ico
+2026-04-18T22:00:49.742-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /error
+2026-04-18T22:00:49.743-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /error
+2026-04-18T22:00:49.780-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:01:00.726-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /logout
+2026-04-18T22:01:00.726-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:01:00.727-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.w.a.logout.LogoutFilter            : Logging out [UsernamePasswordAuthenticationToken [Principal=admin, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:01:00.727-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.w.a.l.SecurityContextLogoutHandler : Invalidated session BC7D54E1591776E6667ECE5B1B522100
+2026-04-18T22:01:00.728-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?logout
+2026-04-18T22:01:00.735-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login?logout
+2026-04-18T22:01:00.742-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login?logout
+2026-04-18T22:01:00.745-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:01:06.117-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T22:01:06.121-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.authentication.ProviderManager     : Authentication failed with provider ActiveDirectoryAuthenticationProvider since Credenciales de Active Directory invalidas
+2026-04-18T22:01:06.121-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'asas'
+2026-04-18T22:01:06.122-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2026-04-18T22:01:06.122-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error
+2026-04-18T22:01:06.129-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /login?error
+2026-04-18T22:01:06.130-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /login?error
+2026-04-18T22:01:06.132-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:01:27.466-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T22:01:27.475-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] .s.ChangeSessionIdAuthenticationStrategy : Changed session id from 7DDD911FF78F379DC2D61552544EC15D
+2026-04-18T22:01:27.476-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=7DDD911FF78F379DC2D61552544EC15D], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@5c40ec01]
+2026-04-18T22:01:27.476-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=7DDD911FF78F379DC2D61552544EC15D], Granted Authorities=[ROLE_USER]]
+2026-04-18T22:01:27.476-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T22:01:27.488-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /dashboard
+2026-04-18T22:01:27.490-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=7DDD911FF78F379DC2D61552544EC15D], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:01:27.490-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /dashboard
+2026-04-18T22:03:11.761-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /logout
+2026-04-18T22:03:11.761-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=7DDD911FF78F379DC2D61552544EC15D], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:03:11.762-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.s.w.a.logout.LogoutFilter            : Logging out [UsernamePasswordAuthenticationToken [Principal=User01, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=7DDD911FF78F379DC2D61552544EC15D], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:03:11.762-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.s.w.a.l.SecurityContextLogoutHandler : Invalidated session 448F1D6D45DBA38F47CB75E0D6DE1089
+2026-04-18T22:03:11.762-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-9] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?logout
+2026-04-18T22:03:11.769-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /login?logout
+2026-04-18T22:03:11.770-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /login?logout
+2026-04-18T22:03:11.771-05:00 DEBUG 24464 --- [tareas-ad] [io-8082-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:03:26.153-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T22:03:26.159-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.authentication.ProviderManager     : Authentication failed with provider ActiveDirectoryAuthenticationProvider since Credenciales de Active Directory invalidas
+2026-04-18T22:03:26.161-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'User04'
+2026-04-18T22:03:26.161-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2026-04-18T22:03:26.161-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-1] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error
+2026-04-18T22:03:26.168-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login?error
+2026-04-18T22:03:26.169-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login?error
+2026-04-18T22:03:26.171-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:04:11.324-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /login?error
+2026-04-18T22:04:11.325-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /login?error
+2026-04-18T22:04:11.328-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-18T22:04:20.690-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /login
+2026-04-18T22:04:20.694-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] .s.ChangeSessionIdAuthenticationStrategy : Changed session id from 63A7C0F28252A481B17BA801B4BE618F
+2026-04-18T22:04:20.694-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User04, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=63A7C0F28252A481B17BA801B4BE618F], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@194269ed]
+2026-04-18T22:04:20.694-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] w.a.UsernamePasswordAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=User04, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=63A7C0F28252A481B17BA801B4BE618F], Granted Authorities=[ROLE_USER]]
+2026-04-18T22:04:20.694-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /dashboard
+2026-04-18T22:04:20.702-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /dashboard
+2026-04-18T22:04:20.703-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=User04, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=63A7C0F28252A481B17BA801B4BE618F], Granted Authorities=[ROLE_USER]]]
+2026-04-18T22:04:20.703-05:00 DEBUG 24464 --- [tareas-ad] [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /dashboard
