@@ -24,6 +24,12 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/login", "/error", "/css/**", "/js/**", "/images/**", "/h2-console/**").permitAll()
+
+                // TAREAS
+                .requestMatchers("/tasks").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/tasks/new").hasRole("ADMIN")
+                .requestMatchers("/tasks/edit/**").hasAnyRole("ADMIN", "USER")
+
                 .anyRequest().authenticated()
             )
             .authenticationManager(authenticationManager)
