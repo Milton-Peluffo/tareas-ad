@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${isEdit ? 'Editar Permisos' : 'Agregar Usuario'}">Formulario de Permisos</title>
+    <link rel="stylesheet" href="/css/user-permission-form.css">
+
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+
+        <a href="/admin" class="back-link" style="margin: 20px; display: inline-block;">
+            <i class="ri-arrow-left-line"></i> Volver a Administración
+        </a>
+        
+        <div class="form-header">
+            <h1>
+                <i class="ri-user-settings-line"></i>
+                <span th:text="${isEdit ? 'Editar Permisos de Usuario' : 'Agregar Nuevo Usuario'}"></span>
+            </h1>
+            <p class="subtitle"
+               th:text="${isEdit ? 'Modifica los permisos del usuario seleccionado' : 'Configura los permisos para un nuevo usuario'}">
+            </p>
+        </div>
+        
+        <div class="form-content">
+
+            <!-- ALERTAS -->
+            <div th:if="${success}" class="alert alert-success">
+                <i class="ri-checkbox-circle-line"></i>
+                <span th:text="${success}"></span>
+            </div>
+
+            <div th:if="${error}" class="alert alert-danger">
+                <i class="ri-error-warning-line"></i>
+                <span th:text="${error}"></span>
+            </div>
+            
+            <form th:action="${isEdit ? '/admin/update/' + userPermission.username : '/admin/save-user'}" 
+                  th:object="${userPermission}" 
+                  method="post">
+                
+                <input type="hidden" th:field="*{id}" />
+                
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label for="username">
+                        <i class="ri-user-3-line"></i> Usuario (AD)
+                    </label>
+                    <input type="text" 
+                           id="username" 
+                           th:field="*{username}" 
+                           placeholder="Ej: User01, admin" 
+                           th:disabled="${isEdit}"
+                           required />
+                    <small th:if="${isEdit}" style="color: #666; display: block; margin-top: 5px;">
+                        No se puede modificar
+                    </small>
+                </div>
+                
+                <!-- ADMIN -->
+                <div class="admin-section">
+                    <h3><i class="ri-shield-user-line"></i> Administrador</h3>
+                    <p>Acceso total al sistema</p>
+
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" 
+                               id="isAdmin" 
+                               th:field="*{isAdmin}"
+                               onchange="toggleAllPermissions(this.checked)" />
+                        <label for="isAdmin">Usuario administrador</label>
+                    </div>
+                </div>
+                
+                <!-- PERMISOS -->
+                <div class="permissions-section">
+                    <h3 class="permissions-title">
+                        <i class="ri-lock-2-line"></i> Permisos
+                    </h3>
+                    
+                    <div class="permissions-grid">
+
+                        <div class="permission-item">
+                            <h4><i class="ri-add-circle-line"></i> Crear</h4>
+                            <p>Agregar tareas</p>
+                            <input type="checkbox" id="canCreateTasks" th:field="*{canCreateTasks}" />
+                        </div>
+                        
+                        <div class="permission-item">
+                            <h4><i class="ri-edit-line"></i> Editar</h4>
+                            <p>Modificar tareas</p>
+                            <input type="checkbox" id="canEditTasks" th:field="*{canEditTasks}" />
+                        </div>
+                        
+                        <div class="permission-item">
+                            <h4><i class="ri-delete-bin-line"></i> Eliminar</h4>
+                            <p>Borrar tareas</p>
+                            <input type="checkbox" id="canDeleteTasks" th:field="*{canDeleteTasks}" />
+                        </div>
+                        
+                        <div class="permission-item">
+                            <h4><i class="ri-refresh-line"></i> Estado</h4>
+                            <p>Cambiar estado</p>
+                            <input type="checkbox" id="canChangeStatus" th:field="*{canChangeStatus}" />
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- INFO -->
+                <div class="alert alert-info" th:if="${!isEdit}">
+                    <i class="ri-information-line"></i>
+                    Usuario debe existir en AD para iniciar sesión
+                </div>
+                
+                <!-- BOTONES -->
+                <div class="buttons">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="ri-save-line"></i>
+                        <span th:text="${isEdit ? 'Actualizar' : 'Crear'}"></span>
+                    </button>
+
+                    <a href="/admin" class="btn btn-secondary">
+                        <i class="ri-close-line"></i> Cancelar
+                    </a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function toggleAllPermissions(isAdmin) {
+            const ids = ['canCreateTasks','canEditTasks','canDeleteTasks','canChangeStatus'];
+            
+            ids.forEach(id => {
+                const el = document.getElementById(id);
+                if (isAdmin) {
+                    el.checked = true;
+                    el.disabled = true;
+                } else {
+                    el.disabled = false;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const admin = document.getElementById('isAdmin');
+            if (admin && admin.checked) toggleAllPermissions(true);
+        });
+    </script>
+</body>
+</html>

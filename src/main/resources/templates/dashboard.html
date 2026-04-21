@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - Tareas AD</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Sistema de Gestión de tareas</h1>
+            <p class="subtitle">Con Active Directory</p>
+        </div>
+        
+        <div class="user-info">
+            <div class="user-details">
+                <div class="label">Usuario conectado</div>
+                <div class="username" th:text="${#authentication.name}">Usuario</div>
+            </div>
+            <div class="user-icon"><i class="ri-user-3-line"></i></div>
+        </div>
+        
+        <div class="features">
+            <a href="/tasks" class="feature-card">
+                <span class="icon"><i class="ri-task-line"></i></span>
+                <h3>Gestión de Tareas</h3>
+                <p>Crear, editar y administrar todas las tareas del sistema</p>
+                <span class="arrow">Acceder <i class="ri-arrow-right-line"></i></span>
+            </a>
+            
+            <a href="/admin" class="feature-card">
+                <span class="icon"><i class="ri-shield-user-line"></i></span>
+                <h3>Administración</h3>
+                <p>Gestionar permisos y configuración de usuarios del AD</p>
+                <span class="arrow">Acceder <i class="ri-arrow-right-line"></i></span>
+            </a>
+        </div>
+        
+        <div class="system-info">
+            <div class="info-item">
+                <span class="info-label">Dominio:</span> parcial.tareas
+            </div>
+            <div class="info-item">
+                <span class="info-label">Base de datos:</span> MySQL
+            </div>
+            <div class="info-item">
+                <span class="info-label">Autenticación:</span> Active Directory
+            </div>
+        </div>
+        
+        <div class="logout-section">
+            <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+        </div>
+    </div>
+</body>
+</html>
