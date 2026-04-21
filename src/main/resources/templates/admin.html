@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Panel de Administración - Tareas AD</title>
+    <link rel="stylesheet" href="/css/admin.css">
+
+    <!-- ICONOS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+
+        <a href="/dashboard" class="back-link" style="margin: 20px; display: inline-block;">
+            <i class="ri-arrow-left-line"></i> Volver al Dashboard
+        </a>
+        
+        <div class="admin-header">
+            <h1><i class="ri-shield-user-line"></i> Panel de Administración</h1>
+            <p class="subtitle">Gestión de Permisos de Usuarios</p>
+        </div>
+        
+        <div class="admin-content">
+            
+            <!-- ALERTAS -->
+            <div th:if="${success}" class="alert alert-success">
+                <i class="ri-checkbox-circle-line"></i>
+                <span th:text="${success}"></span>
+            </div>
+
+            <div th:if="${error}" class="alert alert-danger">
+                <i class="ri-error-warning-line"></i>
+                <span th:text="${error}"></span>
+            </div>
+            
+            <!-- STATS -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3 th:text="${totalUsers}">0</h3>
+                    <p><i class="ri-user-line"></i> Total Usuarios</p>
+                </div>
+                <div class="stat-card">
+                    <h3 th:text="${adminCount}">0</h3>
+                    <p><i class="ri-shield-star-line"></i> Administradores</p>
+                </div>
+                <div class="stat-card">
+                    <h3 th:text="${createCount}">0</h3>
+                    <p><i class="ri-add-circle-line"></i> Crear</p>
+                </div>
+                <div class="stat-card">
+                    <h3 th:text="${editCount}">0</h3>
+                    <p><i class="ri-edit-line"></i> Editar</p>
+                </div>
+                <div class="stat-card">
+                    <h3 th:text="${deleteCount}">0</h3>
+                    <p><i class="ri-delete-bin-line"></i> Eliminar</p>
+                </div>
+                <div class="stat-card">
+                    <h3 th:text="${changeStatusCount}">0</h3>
+                    <p><i class="ri-refresh-line"></i> Estado</p>
+                </div>
+            </div>
+            
+            <!-- ACTIONS -->
+            <div class="actions-bar">
+                <form th:action="@{/admin/search}" method="get" class="search-box">
+                    <i class="ri-search-line"></i>
+                    <input type="text" name="username" placeholder="Buscar usuario..." th:value="${searchTerm}">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        Buscar
+                    </button>
+                </form>
+                
+                <a href="/admin/add-user" class="btn btn-success">
+                    <i class="ri-user-add-line"></i> Agregar Usuario
+                </a>
+                
+                <th:block th:if="${searchTerm}">
+                    <a href="/admin" class="btn btn-secondary btn-sm">
+                        <i class="ri-refresh-line"></i> Mostrar Todos
+                    </a>
+                </th:block>
+            </div>
+            
+            <!-- TABLA -->
+            <div class="users-table">
+                <table class="table" th:if="${!#lists.isEmpty(users)}">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Admin</th>
+                            <th>Crear</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                            <th>Estado</th>
+                            <th>Permisos</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${users}">
+                            <td>
+                                <strong>
+                                    <i class="ri-user-3-line"></i>
+                                    <span th:text="${user.username}">usuario</span>
+                                </strong>
+                                <br>
+                                <small>
+                                    <i class="ri-calendar-line"></i>
+                                    <span th:text="'Creado: ' + ${#temporals.format(user.fechaCreacion, 'dd/MM/yyyy')}"></span>
+                                </small>
+                            </td>
+
+                            <td>
+                                <span th:if="${user.isAdmin}" class="admin-badge">
+                                    <i class="ri-shield-check-line"></i> ADMIN
+                                </span>
+                                <span th:unless="${user.isAdmin}" class="permission-badge permission-no">NO</span>
+                            </td>
+
+                            <td>
+                                <span th:if="${user.canCreateTasks}" class="permission-badge permission-yes">SÍ</span>
+                                <span th:unless="${user.canCreateTasks}" class="permission-badge permission-no">NO</span>
+                            </td>
+
+                            <td>
+                                <span th:if="${user.canEditTasks}" class="permission-badge permission-yes">SÍ</span>
+                                <span th:unless="${user.canEditTasks}" class="permission-badge permission-no">NO</span>
+                            </td>
+
+                            <td>
+                                <span th:if="${user.canDeleteTasks}" class="permission-badge permission-yes">SÍ</span>
+                                <span th:unless="${user.canDeleteTasks}" class="permission-badge permission-no">NO</span>
+                            </td>
+
+                            <td>
+                                <span th:if="${user.canChangeStatus}" class="permission-badge permission-yes">SÍ</span>
+                                <span th:unless="${user.canChangeStatus}" class="permission-badge permission-no">NO</span>
+                            </td>
+
+                            <td>
+                                <small th:text="${user.permissionsDescription}"></small>
+                            </td>
+
+                            <td>
+                                <div class="actions">
+                                    
+                                    <!-- EDITAR -->
+                                    <a th:href="@{/admin/edit/{username}(username=${user.username})}" 
+                                       class="btn btn-warning btn-sm" 
+                                       title="Editar">
+                                        <i class="ri-edit-line"></i>
+                                    </a>
+
+                                    <!-- HACER ADMIN -->
+                                    <th:block th:if="${!user.isAdmin}">
+                                        <a th:href="@{/admin/make-admin/{username}(username=${user.username})}" 
+                                           class="btn btn-success btn-sm"
+                                           title="Hacer admin"
+                                           onclick="return confirm('¿Promover a administrador?')">
+                                            <i class="ri-shield-star-line"></i>
+                                        </a>
+                                    </th:block>
+
+                                    <!-- OTROS -->
+                                    <th:block th:if="${user.username != currentUser}">
+                                        <a th:href="@{/admin/remove-permissions/{username}(username=${user.username})}" 
+                                           class="btn btn-warning btn-sm"
+                                           title="Quitar permisos"
+                                           onclick="return confirm('¿Quitar todos los permisos?')">
+                                            <i class="ri-lock-unlock-line"></i>
+                                        </a>
+
+                                        <a th:href="@{/admin/delete/{username}(username=${user.username})}" 
+                                           class="btn btn-danger btn-sm"
+                                           title="Eliminar"
+                                           onclick="return confirm('¿Eliminar este usuario?')">
+                                            <i class="ri-delete-bin-line"></i>
+                                        </a>
+                                    </th:block>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- EMPTY -->
+                <div th:if="${#lists.isEmpty(users)}" class="empty-state">
+                    <h3 th:if="${searchTerm}">
+                        <i class="ri-search-line"></i> No se encontraron usuarios
+                    </h3>
+
+                    <h3 th:unless="${searchTerm}">
+                        <i class="ri-user-unfollow-line"></i> No hay usuarios registrados
+                    </h3>
+
+                    <p th:if="${searchTerm}">Intenta con otra búsqueda</p>
+
+                    <p th:unless="${searchTerm}">
+                        <a href="/admin/add-user" class="btn btn-primary">
+                            <i class="ri-user-add-line"></i> Agregar Primer Usuario
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

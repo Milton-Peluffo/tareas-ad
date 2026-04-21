@@ -35,9 +35,14 @@
             </div>
         </div>
 
-        <!-- Botón para crear nueva tarea -->
-        <div style="margin-bottom: 20px;">
+        <!-- Botón para crear nueva tarea (solo si tiene permisos) -->
+        <div style="margin-bottom: 20px;" th:if="${canCreateTasks or isAdmin}">
             <a href="/tasks/new" class="btn btn-primary">+ Nueva Tarea</a>
+        </div>
+        
+        <!-- Mensaje si no tiene permisos para crear -->
+        <div th:if="${!canCreateTasks and !isAdmin}" style="margin-bottom: 20px; padding: 10px; background: #f8d7da; border-radius: 5px; color: #721c24;">
+            No tienes permisos para crear nuevas tareas
         </div>
 
         <!-- Tabla de tareas -->
@@ -66,28 +71,37 @@
                     <td th:text="${#temporals.format(task.fechaCreacion, 'dd/MM/yyyy HH:mm')}">Fecha</td>
                     <td>
                         <div class="actions">
-                            <!-- Botón editar (lápiz) -->
-                            <a th:href="@{/tasks/edit/{id}(id=${task.id})}" 
+                            <!-- Botón editar (lápiz) - solo si tiene permisos -->
+                            <a th:if="${canEditTasks or isAdmin}" 
+                               th:href="@{/tasks/edit/{id}(id=${task.id})}" 
                                class="btn btn-warning btn-sm" 
                                title="Editar tarea">
                                 &#9998;
                             </a>
                             
-                            <!-- Botón cambiar estado -->
-                            <a th:href="@{/tasks/toggle-status/{id}(id=${task.id})}" 
+                            <!-- Botón cambiar estado - solo si tiene permisos -->
+                            <a th:if="${canChangeStatus or isAdmin}" 
+                               th:href="@{/tasks/toggle-status/{id}(id=${task.id})}" 
                                class="btn btn-success btn-sm" 
                                title="Cambiar estado">
                                 <span th:if="${task.estado == 'PENDIENTE'}">&#10003;</span>
                                 <span th:if="${task.estado == 'FINALIZADO'}">&#8635;</span>
                             </a>
                             
-                            <!-- Botón eliminar (basura) -->
-                            <a th:href="@{/tasks/delete/{id}(id=${task.id})}" 
+                            <!-- Botón eliminar (basura) - solo si tiene permisos -->
+                            <a th:if="${canDeleteTasks or isAdmin}" 
+                               th:href="@{/tasks/delete/{id}(id=${task.id})}" 
                                class="btn btn-danger btn-sm" 
                                title="Eliminar tarea"
                                onclick="return confirm('¿Está seguro de eliminar esta tarea?')">
                                 &#128465;
                             </a>
+                            
+                            <!-- Mensaje si no tiene permisos para ninguna acción -->
+                            <span th:if="${!canEditTasks and !canChangeStatus and !canDeleteTasks and !isAdmin}" 
+                                  style="color: #666; font-size: 12px;">
+                                Sin permisos
+                            </span>
                         </div>
                     </td>
                 </tr>
