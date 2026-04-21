@@ -24,28 +24,20 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/login", "/error", "/css/**", "/js/**", "/images/**", "/h2-console/**").permitAll()
-
-                // TAREAS
-                .requestMatchers("/tasks").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/tasks/new").hasRole("ADMIN")
-                .requestMatchers("/tasks/edit/**").hasAnyRole("ADMIN", "USER")
-
+                .requestMatchers("/tasks/**", "/admin/**").authenticated()
                 .anyRequest().authenticated()
             )
-            .authenticationManager(authenticationManager)
             .formLogin(form -> form
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/dashboard", true)
-                .failureUrl("/login?error")
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()
             )
-            .csrf(csrf -> csrf.disable());
-
+            .csrf(csrf -> csrf.disable()); // Temporalmente deshabilitado para pruebas
+        
         return http.build();
     }
 

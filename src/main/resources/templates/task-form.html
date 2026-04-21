@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulario</title>
+    <title th:text="${isEdit ? 'Editar Tarea' : 'Nueva Tarea'}">Formulario de Tarea</title>
+    <link rel="stylesheet" href="/css/task-form.css">
 </head>
 <body>
+    <div class="container">
+        <a href="/tasks" class="back-link">« Volver a la lista de tareas</a>
+        
+        <div class="header">
+            <h1 th:text="${isEdit ? 'Editar Tarea' : 'Nueva Tarea'}">Formulario de Tarea</h1>
+        </div>
 
-<h1>Formulario de tarea</h1>
+        <!-- Mensajes de éxito/error -->
+        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
 
-<form th:action="@{/tasks}" th:object="${task}" method="post">
+        <form th:action="${isEdit ? '/tasks/update/' + task.id : '/tasks/save'}" 
+              th:object="${task}" 
+              method="post">
 
-    <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{id}" />
 
-    <label>Titulo:</label>
-    <input type="text" th:field="*{title}" required />
+            <div class="form-group">
+                <label for="nombre">Nombre de la Tarea:</label>
+                <input type="text" 
+                       id="nombre" 
+                       th:field="*{nombre}" 
+                       placeholder="Ingrese el nombre de la tarea" 
+                       required />
+            </div>
 
-    <label>Descripcion:</label>
-    <input type="text" th:field="*{description}" />
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" 
+                          th:field="*{descripcion}" 
+                          placeholder="Ingrese una descripción detallada"></textarea>
+            </div>
 
-    <label>Estado:</label>
-    <select th:field="*{status}">
-        <option value="PENDIENTE">Pendiente</option>
-        <option value="COMPLETADA">Completada</option>
-    </select>
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <select id="estado" th:field="*{estado}">
+                    <option value="PENDIENTE">Pendiente</option>
+                    <option value="FINALIZADO">Finalizado</option>
+                </select>
+            </div>
 
-    <button type="submit">Guardar</button>
+            <div class="form-group" th:if="${!isEdit}">
+                <label>Creado por:</label>
+                <input type="text" 
+                       th:value="${currentUser}" 
+                       readonly 
+                       style="background-color: #f8f9fa;" />
+            </div>
 
-</form>
+            <div class="buttons">
+                <button type="submit" class="btn btn-primary">
+                    <span th:text="${isEdit ? 'Actualizar Tarea' : 'Crear Tarea'}">Guardar</span>
+                </button>
+                <a href="/tasks" class="btn btn-secondary">Cancelar</a>
+            </div>
 
-<a href="/tasks">Volver</a>
-
+        </form>
+    </div>
 </body>
 </html>
